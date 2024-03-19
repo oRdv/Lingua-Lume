@@ -1,9 +1,3 @@
-const textareaFrom = document.querySelector('#textareaFrom')
-const textareaTo = document.querySelector('#textareaTo')
-const bntTranslate = document.querySelector('#bntTranslate')
-const selects = document.querySelectorAll('select')
-
-
 function toggleDarkMode() {
     var body = document.body;
     var button = document.getElementById("button-modo");
@@ -17,43 +11,20 @@ function toggleDarkMode() {
     }
 }
 
-const countries = {
-    "en-GB": "Inglês",
-    "es-ES": "Espanhol",
-     "it-IT": "Italiano",
-    "ja-JP": "Japonês",
-    "pt-BR": "Português",
+const funTrac = async(text, l1, l2) => {
+  const url = `https://api.mymemory.translated.net/get?q=${text}&langpair=${l1}|${l2}`
+  const response = await fetch(url)
+  const data = await response.json()
+
+  return data
 }
 
-selects.forEach((tag) => {
-    for (let country in countries) {
-        let selected
-        if(tag.className.includes('selectFrom') && country == 'pt-BR' ) {
-            selected = 'selected'
-        } else if (tag.className.includes("selectTo") && country == 'en-GB') {
-            selected = 'selected'
-    }
+const getTraduction = async() => {
+  const text = document.getElementById('textareaFrom').value
+  let langs = document.getElementById('langs').value
 
-    const option = `<option value="${country}" ${selected}>${countries[country]}</option>`
+  const traducao = document.getElementById('textareaTo')
+}
 
-    tag.insertAdjacentHTML("beforeend", option)
-    }   
-})
 
-bntTranslate.addEventListener("click", () => {
-    if (textareaFrom.value) {
-      loadTranslation()
-    } else {
-      textareaTo.value = ""
-    }
-  })
 
-  function loadTranslation() {
-    fetch(
-      `https://api.mymemory.translated.net/get?q=${textareaFrom.value}&langpair=${selects[0].value}|${selects[1].value}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        textareaTo.value = data.responseData.translatedText;
-      })
-  }

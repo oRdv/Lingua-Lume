@@ -25,15 +25,15 @@
         <div class="content">
             <div class="purple-box">
                 <div class="select">
-                    <select class="selectFrom purple-select"></select>
-                    <select class="selectTo purple-select"></select>
+                    <select  id="langs"  class="selectFrom purple-select"></select>
+                    <select  id="lang"  class="selectTo purple-select"></select>
                 </div>
                 <div class="translator-box">
                     <textarea class="input-text" rows="8"  id="textareaFrom" placeholder="Insira o texto para traduzir..."></textarea>
                     <textarea class="output-text" rows="8" id="textareaTo" placeholder="Tradução..." disabled></textarea>
                 </div>
             </div>
-            <button id="bntTranslate" class="button">Traduzir</button>
+            <button id="bntTranslate" onclick="getTraduction()" class="button">Traduzir</button>
         </div>
     </div>
 </body>
