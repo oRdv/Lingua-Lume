@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/main.js"></script>
+    <script src="./js/api.js" defer></script>
+    <script src="./js/main.js" defer></script>
     <link rel="icon" href="./img/vagalume 1.png">
     <title>LínguaLume - Tradutor</title>
 </head>
@@ -25,15 +26,15 @@
         <div class="content">
             <div class="purple-box">
                 <div class="select">
-                    <select  id="langs"  class="selectFrom purple-select"></select>
-                    <select  id="lang"  class="selectTo purple-select"></select>
+                    <select id="langs" class="selectFrom purple-select"></select>
+                    <select id="lang" class="selectTo purple-select"></select>
                 </div>
                 <div class="translator-box">
-                    <textarea class="input-text" rows="8"  id="textareaFrom" placeholder="Insira o texto para traduzir..."></textarea>
-                    <textarea class="output-text" rows="8" id="textareaTo" placeholder="Tradução..." disabled></textarea>
+                    <textarea class="input-text" rows="8" id="fromText" placeholder="Insira o texto para traduzir..."></textarea>
+                    <textarea class="output-text" rows="8" id="toText" placeholder="Tradução..." disabled></textarea>
                 </div>
             </div>
-            <button id="bntTranslate" onclick="getTraduction()" class="button">Traduzir</button>
+            <button id="translateBtn" class="button">Traduzir</button>
         </div>
     </div>
 </body>
