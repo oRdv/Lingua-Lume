@@ -42,3 +42,13 @@ translateBtn.addEventListener("click", () => {
         toText.setAttribute("placeholder", "Translation");
     });
 });
+
+
+fromText.addEventListener("keyup", () => {
+  let inputValue = fromText.value.toLowerCase();
+  if (inputValue.includes("alice")) {
+      document.body.classList.add("alice-background");
+  } else {
+      document.body.classList.remove("alice-background");
+  }
+});
