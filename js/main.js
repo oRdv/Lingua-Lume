@@ -11,20 +11,34 @@ function toggleDarkMode() {
     }
 }
 
-const funTrac = async(text, l1, l2) => {
-  const url = `https://api.mymemory.translated.net/get?q=${text}&langpair=${l1}|${l2}`
-  const response = await fetch(url)
-  const data = await response.json()
-
-  return data
-}
-
-const getTraduction = async() => {
-  const text = document.getElementById('textareaFrom').value
-  let langs = document.getElementById('langs').value
-
-  const traducao = document.getElementById('textareaTo')
-}
+const fromText = document.querySelector("#fromText"),
+      toText = document.querySelector("#toText"), 
+      selectTag = document.querySelectorAll("select"),
+      translateBtn = document.querySelector("#translateBtn"); 
 
 
+selectTag.forEach((tag, langs) => {
+    for (let country_code in countries) {      
+        let selected = langs == 0 ? country_code == "en-GB" ? "selected" : "" : country_code == "hi-IN" ? "selected" : "";
+        let option = `<option ${selected} value="${country_code}">${countries[country_code]}</option>`;
+        tag.insertAdjacentHTML("beforeend", option);
+    }
+});
 
+translateBtn.addEventListener("click", () => {
+    let text = fromText.value.trim(),
+        translateFrom = selectTag[0].value, 
+        translateTo = selectTag[1].value; 
+    if(!text) return;
+    toText.setAttribute("placeholder", "Translating...");
+    let apiUrl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`;
+    fetch(apiUrl).then(res => res.json()).then(data => {
+        toText.value = data.responseData.translatedText;
+        data.matches.forEach(data => {
+            if(data.id === 0) {
+                toText.value = data.translation;
+            }
+        });
+        toText.setAttribute("placeholder", "Translation");
+    });
+});

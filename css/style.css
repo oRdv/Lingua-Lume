@@ -37,13 +37,13 @@ body {
 h1 {
     font-size: 70px;
     margin-bottom: 5px;
-    color: aliceblue;
+    color: rgb(115, 15, 139);
 }
 
 h2 {
     margin-left: 65px;
     font-size: 65px;
-    color: aliceblue;
+    color: rgb(115, 15, 139);
 }
 img {
     position: absolute; 
