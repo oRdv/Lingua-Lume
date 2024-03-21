@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
-    <link rel="icon" href="vagalume 1.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/main.js"></script>
+    <link rel="icon" href="./img/vagalume 1.png">
     <title>LínguaLume - Tradutor</title>
 </head>
 <body>
@@ -19,20 +20,20 @@
         <div class="title">
             <h1>Língua</h1>
             <h2>Lume</h2>
-            <img src="vagalume 1.png" alt="LinguaLume Logo">
+            <img src="./img/vagalume 1.png" alt="LinguaLume Logo">
         </div>
         <div class="content">
             <div class="purple-box">
                 <div class="select">
-                    <select class="selectOne purple-select"></select>
-                    <select class="selectTwo purple-select"></select>
+                    <select  id="langs"  class="selectFrom purple-select"></select>
+                    <select  id="lang"  class="selectTo purple-select"></select>
                 </div>
                 <div class="translator-box">
-                    <textarea class="input-text" placeholder="Insira o texto para traduzir..."></textarea>
-                    <textarea class="output-text" placeholder="Tradução..."></textarea>
+                    <textarea class="input-text" rows="8"  id="textareaFrom" placeholder="Insira o texto para traduzir..."></textarea>
+                    <textarea class="output-text" rows="8" id="textareaTo" placeholder="Tradução..." disabled></textarea>
                 </div>
             </div>
-            <button class="button">Traduzir</button>
+            <button id="bntTranslate" onclick="getTraduction()" class="button">Traduzir</button>
         </div>
     </div>
 </body>
