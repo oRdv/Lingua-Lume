@@ -1,4 +1,4 @@
-# <img src="./img/lingua-lume.png"  width="400" height="400" >
+# <img src="./img/lingua-lume.png"  width="200" height="200" >
 
 <p> LÍNGUA LUME -TRADUTOR </p>
 <p> Com Língua Lume a comunicação repassa conhecimentos entre línguas distintas, facilitando a compreensão do leitor, visto que o conhecimento de outras línguas chega a ser bastante complexo na língua materna. </p>
