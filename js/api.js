@@ -64,7 +64,7 @@ const countries = {
     "ps-PK": "Pashto",
     "pis-SB": "Pijin",
     "pl-PL": "Polish",
-    "pt-PT": "Portuguese",
+    "pt-BR": "Portuguese",
     "rn-BI": "Kirundi",
     "ro-RO": "Romanian",
     "ru-RU": "Russian",

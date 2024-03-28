@@ -11,10 +11,11 @@ function toggleDarkMode() {
     }
 }
 
-const fromText = document.querySelector("#fromText"),
-      toText = document.querySelector("#toText"), 
-      selectTag = document.querySelectorAll("select"),
-      translateBtn = document.querySelector("#translateBtn"); 
+let fromText = document.querySelector("#fromText"),
+    toText = document.querySelector("#toText"), 
+    selectTag = document.querySelectorAll("select"),
+    fromVoice = document.querySelector(".from")
+    translateBtn = document.querySelector("#translateBtn"); 
 
 
 selectTag.forEach((tag, langs) => {
@@ -52,3 +53,61 @@ fromText.addEventListener("keyup", () => {
       document.body.classList.remove("alice-background");
   }
 });
+
+let recognition; 
+let isRecording = false; 
+
+function toggleRecording() {
+    if (!isRecording) {
+        startRecording();
+        document.getElementById('toggleRecordingBtn').textContent = 'Parar Gravação';
+    } else {
+        stopRecording();
+        document.getElementById('toggleRecordingBtn').textContent = 'Iniciar Gravação';
+    }
+    isRecording = !isRecording; 
+}
+
+function startRecording() {
+    recognition = new webkitSpeechRecognition();
+    recognition.lang = 'pt-PT';
+    recognition.onresult = function(event) {
+        let transcript = event.results[0][0].transcript;
+        fromText.value = transcript;
+        translateText(transcript);
+    };
+    recognition.start();
+}
+
+function stopRecording() {
+    if (recognition) {
+        recognition.stop();
+    }
+}
+
+function reproduzirAudio() {
+    let traducao = toText.value;
+    let selectedLanguage = selectTag[1].value;
+
+   
+    if ('speechSynthesis' in window) {
+        let utterance = new SpeechSynthesisUtterance(traducao);
+        utterance.lang = selectedLanguage;
+        window.speechSynthesis.speak(utterance);
+    } else {
+        console.error('API de Síntese de Fala não suportada neste navegador');
+    }
+}
+
+fromText.addEventListener('input', function() {
+    let inputValue = fromText.value.toLowerCase();
+    if (inputValue.includes("nathalia")) {
+        startRecording();
+    } else {
+        stopRecording();
+    }
+});
+
+
+document.getElementById('toggleRecordingBtn').addEventListener('click', toggleRecording);
+document.getElementById('reproduzirAudioBtn').addEventListener('click', reproduzirAudio); 

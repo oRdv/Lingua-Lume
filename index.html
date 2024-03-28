@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-gtEjr9F3gaXnyi1N8X8fxTNraubVtTShl/bx9l+K5kD6E5cBPy2xXCTAqbOGfoig" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/api.js" defer></script>
     <script src="./js/main.js" defer></script>
@@ -24,17 +25,27 @@
             <img src="./img/vagalume 1.png" alt="LinguaLume Logo">
         </div>
         <div class="content">
+            </div>
             <div class="purple-box">
                 <div class="select">
                     <select id="langs" class="selectFrom purple-select"></select>
                     <select id="lang" class="selectTo purple-select"></select>
                 </div>
+
                 <div class="translator-box">
                     <textarea class="input-text" rows="8" id="fromText" placeholder="Insira o texto para traduzir..."></textarea>
                     <textarea class="output-text" rows="8" id="toText" placeholder="Tradução..." disabled></textarea>
                 </div>
+
+                    <div class="buttons">
+                        <button id="toggleRecordingBtn" class="button">Iniciar Gravação</button>
+                        <button id="reproduzirAudioBtn" class="button  from"> Reproduzir Áudio</button>                        
+                    </div>
+            
+          
             </div>
-            <button id="translateBtn" class="button">Traduzir</button>
+            <button id="translateBtn" class="button">Traduzir</button>  
+            
         </div>
     </div>
 </body>

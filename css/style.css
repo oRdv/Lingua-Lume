@@ -114,3 +114,11 @@ button {
         right: 10px;
     }
 }
+
+.alice-background {
+    background-color: #caaef3;
+}
+.buttons{
+    display: flex;
+    gap: 10px;
+}
