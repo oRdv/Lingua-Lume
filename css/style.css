@@ -37,13 +37,13 @@ body {
 h1 {
     font-size: 70px;
     margin-bottom: 5px;
-    color: rgb(115, 15, 139);
+    color: #561EA3;
 }
 
 h2 {
     margin-left: 65px;
     font-size: 65px;
-    color: rgb(115, 15, 139);
+    color: #561EA3;
 }
 img {
     position: absolute; 
@@ -62,7 +62,6 @@ img {
     background-color: #D8D3FF;
     padding: 20px;
     border-radius: 10px;
-
 }
 .select {
     display: flex;
@@ -108,11 +107,10 @@ button {
     align-self: center;
     display: block;
 }
-
-.alice-background {
-    background-color: #9377AB; 
+@media(max-width: 768px) {
+    .modo-botao {
+        top: auto;
+        bottom: 10px; 
+        right: 10px;
+    }
 }
-
-
-
-
